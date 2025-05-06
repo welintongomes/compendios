@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Texto em Arquivos</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="icon-512x512.png" type="image/png">
     
 </head>
 <body>
     <div class="container">
         <h1>Buscador de Texto em Arquivos</h1>
-        
         <!-- Upload de Arquivos -->
         <div class="section">
             <h2 class="section-title">Carregar Arquivos</h2>
@@ -23,7 +24,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- Área de Busca -->
         <div class="section">
             <h2 class="section-title">Buscar nos Arquivos</h2>
@@ -32,41 +32,34 @@
                     <input type="text" id="searchInput" placeholder="Digite algo para buscar...">
                     <button id="searchButton">Buscar</button>
                 </div>
-                
                 <div class="search-options">
                     <div class="option-group">
                         <input type="checkbox" id="caseSensitive">
                         <label for="caseSensitive">Diferenciar maiúsculas/minúsculas</label>
                     </div>
-                    
                     <div class="option-group">
                         <input type="checkbox" id="wholeWord">
                         <label for="wholeWord">Palavra inteira</label>
                     </div>
-                    
                     <div class="option-group">
                         <input type="checkbox" id="useRegex">
                         <label for="useRegex">Usar expressão regular</label>
                     </div>
-                    
                     <div class="option-group">
-                        <input type="checkbox" id="ignoreAccents">
+                        <input type="checkbox" id="ignoreAccents" >
                         <label for="ignoreAccents">Ignorar acentos</label>
                     </div>
                 </div>
             </div>
         </div>
-        
         <!-- Resultados de Busca -->
         <div class="section">
             <h2 class="section-title">Resultados</h2>
-            
             <div class="controls">
-                <div>
+                <div class="separar">
                     <button id="copyAllButton">Copiar Todos</button>
                     <button id="exportButton">Exportar</button>
                 </div>
-                
                 <div>
                     <label for="sizeFilter">Filtrar por tamanho:</label>
                     <select id="sizeFilter">
@@ -77,14 +70,21 @@
                     </select>
                 </div>
             </div>
-            
             <div id="stats"></div>
             <div id="searchResults">
                 <div class="no-results">Digite algo para buscar</div>
             </div>
         </div>
     </div>
-    
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service worker registered'))
+          .catch(err => console.log('Service worker error:', err));
+      });
+    }
+  </script>
     <script src="script.js"></script>
 </body>
 </html>

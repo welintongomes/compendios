@@ -90,17 +90,14 @@ button:hover {
   background-color: #0056b3;
 }
 
-.copy-button {
-  margin-top: 8px;
-  align-self: flex-end;
-}
+
 
 /* Lista de arquivos carregados */
 .file-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 2px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -257,8 +254,10 @@ button:hover {
   }
   
   .search-options {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    margin-top: 0px;
   }
   
   .option-group {
@@ -274,6 +273,11 @@ button:hover {
   .controls select {
     width: 100%;
   }
+  .separar{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -284,7 +288,7 @@ button:hover {
   .file-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 0px;
   }
   
   .file-item button {
@@ -308,7 +312,7 @@ button:hover {
   input[type="checkbox"], 
   input[type="radio"], 
   select {
-    min-height: 44px; /* Mínimo de 44px para área de toque confortável */
+    min-height: 30px; /* Mínimo de 44px para área de toque confortável */
   }
   
   .option-group {
@@ -434,4 +438,353 @@ button:hover {
 
 .context-button:hover {
   background-color: #218838;
+}
+/* Adicione isso ao seu CSS existente */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
+}
+
+.notification.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.notification.error {
+  background-color: #f44336;
+  color: white;
+}
+
+.clear-all-button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-all-button:hover {
+  background-color: #e64a19;
+}
+
+.file-meta {
+  font-size: 0.85em;
+  color: #666;
+  margin-left: 5px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1; transform: translateY(0);}
+  to {opacity: 0; transform: translateY(-20px);}
+}
+
+body.hidden {
+  display: none;
+}
+#login-container {
+  /* Estilos para o container do formulário de login */
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  width: 300px;
+}
+.button-container {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  
+}
+
+.button-container button {
+  padding: 0.4rem 0.4rem;
+  font-size: 0.7rem;
+  border-radius: 0.65rem;
+  border: none;
+  cursor: pointer;
+  background-color: #0d6efd;
+  color: white;
+}
+.button-container button {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+    border: none;
+    cursor: pointer;
+    background-color: #0d6efd;
+    color: white;
+}
+.button-container button:hover {
+  background-color: #0b5ed7;
+}
+.edit-button, .export-button {
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.edit-button:hover, .export-button:hover {
+  background-color: #e5e5e5;
+}
+
+.edit-textarea {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: inherit;
+  font-size: inherit;
+  resize: vertical;
+}
+
+.edit-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.edit-actions button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-actions button:first-child {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #45a049;
+}
+
+.edit-actions button:last-child {
+  background-color: #f44336;
+  color: white;
+  border-color: #d32f2f;
+}
+
+/* Estilos para o botão de adicionar parágrafo */
+.add-paragraph-button {
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  cursor: pointer;
+}
+
+.add-paragraph-button:hover {
+  background-color: #c8e6c9;
+}
+
+/* Estilos para o modal de edição */
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.edit-modal-content {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  width: 80%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.edit-modal-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #f44336;
+}
+
+.new-paragraph-textarea {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  resize: vertical;
+  border-radius: 4px;
+}
+
+.update-search-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.update-search-button:hover {
+  background-color: #0b7dda;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 768px) {
+  .edit-modal-content {
+      width: 95%;
+      padding: 15px;
+  }
+  .button-container{
+  justify-content: space-between;
+  }
+  
+  .button-container button {
+      margin-bottom: 5px;
+      justify-content: space-between;
+  }
+}
+
+/* Estilos para o botão de excluir */
+.delete-button {
+  margin-left: 5px;
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #ffebee;
+  color: #c62828;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #ffcdd2;
+}
+
+/* Animação de fade-out para resultados sendo excluídos */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+
+
+.read-button.speaking {
+  background-color: #f44336;
+}
+/* Estilos para o botão de ler todos */
+.read-all-container {
+  margin: 15px 0;
+  text-align: right;
+}
+
+.read-all-button, .stop-all-button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.read-all-button {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #45a049;
+}
+
+.read-all-button:hover {
+  background-color: #45a049;
+}
+
+.stop-all-button {
+  background-color: #f44336;
+  color: white;
+  border: 1px solid #d32f2f;
+}
+
+.stop-all-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Estilos para destacar o texto que está sendo lido */
+.content.reading-active {
+  background-color: rgba(255, 255, 0, 0.15);
+  border-left: 3px solid #ffd700;
+  padding-left: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.result-item.current-reading {
+  border: 2px solid #4285f4;
+  box-shadow: 0 0 10px rgba(66, 133, 244, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Estilos para o botão de leitura quando ativo */
+.read-button.speaking {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Garantir que resultados colapsados sejam expandidos durante a leitura */
+.content.reading-active.collapsed {
+  max-height: none !important;
+}
+
+/* Estilo responsivo para dispositivos móveis */
+@media screen and (max-width: 768px) {
+  .read-all-container {
+      text-align: center;
+  }
+  
+  .read-all-button, .stop-all-button {
+      width: 90%;
+      margin: 5px auto;
+      display: block;
+  }
+  
+  .content.reading-active {
+      border-left: none;
+      border-top: 3px solid #ffd700;
+      padding-top: 10px;
+  }
 }
