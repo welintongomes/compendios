@@ -1,5 +1,5 @@
 // Sistema de persistência com IndexedDB
-const DB_NAME = 'fileSearchDB';
+const DB_NAME = 'fileSearchDB1';
 const DB_VERSION = 1;
 const STORE_NAME = 'files';
 let db;
